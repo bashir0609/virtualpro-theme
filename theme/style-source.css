@@ -1,0 +1,24 @@
+/*!
+Theme Name: Islah Web Service Theme
+Theme URI: https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME
+Description: A custom WordPress theme based on _tw with TailwindCSS, featuring automatic updates from GitHub
+Author: Your Name
+Author URI: https://github.com/YOUR_GITHUB_USERNAME
+Version: 1.0.0
+Requires at least: 6.0
+Tested up to: 6.4
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: islah_tw
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready, tailwindcss
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned.
+
+Islah Web Service Theme is based on Underscores https://underscores.me/, (C) 2012-2020 Automattic, Inc.
+Underscores is distributed under the terms of the GNU GPL v2 or later.
+
+Normalizing styles have been helped along thanks to the fine work of
+Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
+*/
