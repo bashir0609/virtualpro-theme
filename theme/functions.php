@@ -232,7 +232,7 @@ require get_template_directory() . '/inc/theme-updater.php';
  */
 function virtualpro_init_updater() {
 	// Configuration - Update these values with your GitHub repository details
-	$github_username = 'YOUR_GITHUB_USERNAME';  // Replace with your GitHub username
+	$github_username = 'bashir0609';            // Replace with your GitHub username
 	$github_repo     = 'virtualpro-theme';      // Replace with your repository name
 	$theme_slug      = 'virtualpro';            // Your theme folder name
 	$access_token    = '';                      // Optional: Add token for private repos
