@@ -9,3 +9,32 @@
 body {
 	@apply bg-background text-foreground font-sans;
 }
+
+/* Navigation Menu Styles */
+#primary-menu li {
+	@apply relative;
+}
+
+#primary-menu li a {
+	@apply text-gray-700 hover:text-blue-600 font-medium transition-colors py-2 px-1;
+}
+
+#primary-menu li.current-menu-item a,
+#primary-menu li.current_page_item a {
+	@apply text-blue-600;
+}
+
+/* Mobile Menu Styles */
+#mobile-primary-menu li a {
+	@apply block px-4 py-3 text-gray-700 hover:bg-gray-100 hover:text-blue-600 rounded-md transition-colors;
+}
+
+#mobile-primary-menu li.current-menu-item a,
+#mobile-primary-menu li.current_page_item a {
+	@apply bg-blue-50 text-blue-600;
+}
+
+/* Footer Menu Styles */
+.footer-menu li a {
+	@apply text-gray-400 hover:text-white transition-colors block py-1;
+}
