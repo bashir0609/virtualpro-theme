@@ -9,6 +9,7 @@ A professional WordPress theme for virtual assistants and admin support services
 - **GitHub Integration** - Version control and release management
 - **Modern Development** - Hot reload, PostCSS, and esbuild
 - **Accessibility Ready** - Built with best practices
+- **Elementor Support** - Design headers and footers visually (optional)
 
 ## 🚀 Installation
 
@@ -97,6 +98,33 @@ VirtualPro uses TailwindCSS for styling. You can customize:
 - **Typography**: Modify `VIRTUALPRO_TYPOGRAPHY_CLASSES` in `theme/functions.php`
 - **Templates**: Edit files in `theme/template-parts/`
 
+## 🎯 Elementor Header & Footer Builder
+
+VirtualPro includes full Elementor support for designing custom headers and footers!
+
+### With Elementor (Visual Design)
+
+1. Install the free **Elementor** plugin
+2. Go to **Header & Footer** → **Add New Template**
+3. Select **Header** or **Footer** type
+4. Click **Edit with Elementor**
+5. Design visually with drag & drop
+6. Publish!
+
+### Without Elementor (Code/Customize)
+
+Use the beautiful default header and footer designs included with the theme. No setup required!
+
+**Features:**
+- ✅ Professional, modern design
+- ✅ Mobile responsive
+- ✅ Sticky header option
+- ✅ Social media integration
+- ✅ CTA buttons
+- ✅ Easy to customize
+
+**Learn more:** See `ELEMENTOR_GUIDE.md` for detailed instructions.
+
 ## 📋 Requirements
 
 - WordPress 6.0 or higher
@@ -116,7 +144,10 @@ For more detailed guides, check these files in the repository:
 - **QUICK_START.md** - 5-minute setup guide
 - **SETUP_GUIDE.md** - Detailed configuration instructions
 - **UPDATE_WORKFLOW.md** - How the update system works
+- **ELEMENTOR_GUIDE.md** - Elementor header/footer builder
 - **DEPLOY_NOW.md** - Deployment checklist
+- **WORDPRESS_INSTALL.md** - WordPress installation guide
+- **THEME_NAME_FIX.md** - Theme naming issues
 
 ### TailwindCSS Resources
 
