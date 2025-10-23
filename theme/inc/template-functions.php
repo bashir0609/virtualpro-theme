@@ -2,18 +2,18 @@
 /**
  * Functions which enhance the theme by hooking into WordPress
  *
- * @package islah_tw
+ * @package virtualpro
  */
 
 /**
  * Add a pingback url auto-discovery header for single posts, pages, or attachments.
  */
-function islah_tw_pingback_header() {
+function virtualpro_pingback_header() {
 	if ( is_singular() && pings_open() ) {
 		printf( '<link rel="pingback" href="%s">', esc_url( get_bloginfo( 'pingback_url' ) ) );
 	}
 }
-add_action( 'wp_head', 'islah_tw_pingback_header' );
+add_action( 'wp_head', 'virtualpro_pingback_header' );
 
 /**
  * Changes comment form default fields.
@@ -22,7 +22,7 @@ add_action( 'wp_head', 'islah_tw_pingback_header' );
  *
  * @return array Returns the modified fields.
  */
-function islah_tw_comment_form_defaults( $defaults ) {
+function virtualpro_comment_form_defaults( $defaults ) {
 	$comment_field = $defaults['comment_field'];
 
 	// Adjust height of comment form.
@@ -30,56 +30,56 @@ function islah_tw_comment_form_defaults( $defaults ) {
 
 	return $defaults;
 }
-add_filter( 'comment_form_defaults', 'islah_tw_comment_form_defaults' );
+add_filter( 'comment_form_defaults', 'virtualpro_comment_form_defaults' );
 
 /**
  * Filters the default archive titles.
  */
-function islah_tw_get_the_archive_title() {
+function virtualpro_get_the_archive_title() {
 	if ( is_category() ) {
-		$title = __( 'Category Archives: ', 'islah_tw' ) . '<span>' . single_term_title( '', false ) . '</span>';
+		$title = __( 'Category Archives: ', 'virtualpro' ) . '<span>' . single_term_title( '', false ) . '</span>';
 	} elseif ( is_tag() ) {
-		$title = __( 'Tag Archives: ', 'islah_tw' ) . '<span>' . single_term_title( '', false ) . '</span>';
+		$title = __( 'Tag Archives: ', 'virtualpro' ) . '<span>' . single_term_title( '', false ) . '</span>';
 	} elseif ( is_author() ) {
-		$title = __( 'Author Archives: ', 'islah_tw' ) . '<span>' . get_the_author_meta( 'display_name' ) . '</span>';
+		$title = __( 'Author Archives: ', 'virtualpro' ) . '<span>' . get_the_author_meta( 'display_name' ) . '</span>';
 	} elseif ( is_year() ) {
-		$title = __( 'Yearly Archives: ', 'islah_tw' ) . '<span>' . get_the_date( _x( 'Y', 'yearly archives date format', 'islah_tw' ) ) . '</span>';
+		$title = __( 'Yearly Archives: ', 'virtualpro' ) . '<span>' . get_the_date( _x( 'Y', 'yearly archives date format', 'virtualpro' ) ) . '</span>';
 	} elseif ( is_month() ) {
-		$title = __( 'Monthly Archives: ', 'islah_tw' ) . '<span>' . get_the_date( _x( 'F Y', 'monthly archives date format', 'islah_tw' ) ) . '</span>';
+		$title = __( 'Monthly Archives: ', 'virtualpro' ) . '<span>' . get_the_date( _x( 'F Y', 'monthly archives date format', 'virtualpro' ) ) . '</span>';
 	} elseif ( is_day() ) {
-		$title = __( 'Daily Archives: ', 'islah_tw' ) . '<span>' . get_the_date() . '</span>';
+		$title = __( 'Daily Archives: ', 'virtualpro' ) . '<span>' . get_the_date() . '</span>';
 	} elseif ( is_post_type_archive() ) {
 		$cpt   = get_post_type_object( get_queried_object()->name );
 		$title = sprintf(
 			/* translators: %s: Post type singular name */
-			esc_html__( '%s Archives', 'islah_tw' ),
+			esc_html__( '%s Archives', 'virtualpro' ),
 			$cpt->labels->singular_name
 		);
 	} elseif ( is_tax() ) {
 		$tax   = get_taxonomy( get_queried_object()->taxonomy );
 		$title = sprintf(
 			/* translators: %s: Taxonomy singular name */
-			esc_html__( '%s Archives', 'islah_tw' ),
+			esc_html__( '%s Archives', 'virtualpro' ),
 			$tax->labels->singular_name
 		);
 	} else {
-		$title = __( 'Archives:', 'islah_tw' );
+		$title = __( 'Archives:', 'virtualpro' );
 	}
 	return $title;
 }
-add_filter( 'get_the_archive_title', 'islah_tw_get_the_archive_title' );
+add_filter( 'get_the_archive_title', 'virtualpro_get_the_archive_title' );
 
 /**
  * Determines whether the post thumbnail can be displayed.
  */
-function islah_tw_can_show_post_thumbnail() {
-	return apply_filters( 'islah_tw_can_show_post_thumbnail', ! post_password_required() && ! is_attachment() && has_post_thumbnail() );
+function virtualpro_can_show_post_thumbnail() {
+	return apply_filters( 'virtualpro_can_show_post_thumbnail', ! post_password_required() && ! is_attachment() && has_post_thumbnail() );
 }
 
 /**
  * Returns the size for avatars used in the theme.
  */
-function islah_tw_get_avatar_size() {
+function virtualpro_get_avatar_size() {
 	return 60;
 }
 
@@ -88,12 +88,12 @@ function islah_tw_get_avatar_size() {
  *
  * @param string $more_string The string shown within the more link.
  */
-function islah_tw_continue_reading_link( $more_string ) {
+function virtualpro_continue_reading_link( $more_string ) {
 
 	if ( ! is_admin() ) {
 		$continue_reading = sprintf(
 			/* translators: %s: Name of current post. */
-			wp_kses( __( 'Continue reading %s', 'islah_tw' ), array( 'span' => array( 'class' => array() ) ) ),
+			wp_kses( __( 'Continue reading %s', 'virtualpro' ), array( 'span' => array( 'class' => array() ) ) ),
 			the_title( '<span class="sr-only">"', '"</span>', false )
 		);
 
@@ -104,10 +104,10 @@ function islah_tw_continue_reading_link( $more_string ) {
 }
 
 // Filter the excerpt more link.
-add_filter( 'excerpt_more', 'islah_tw_continue_reading_link' );
+add_filter( 'excerpt_more', 'virtualpro_continue_reading_link' );
 
 // Filter the content more link.
-add_filter( 'the_content_more_link', 'islah_tw_continue_reading_link' );
+add_filter( 'the_content_more_link', 'virtualpro_continue_reading_link' );
 
 /**
  * Outputs a comment in the HTML5 format.
@@ -120,16 +120,16 @@ add_filter( 'the_content_more_link', 'islah_tw_continue_reading_link' );
  * @param array      $args    An array of arguments.
  * @param int        $depth   Depth of the current comment.
  */
-function islah_tw_html5_comment( $comment, $args, $depth ) {
+function virtualpro_html5_comment( $comment, $args, $depth ) {
 	$tag = ( 'div' === $args['style'] ) ? 'div' : 'li';
 
 	$commenter          = wp_get_current_commenter();
 	$show_pending_links = ! empty( $commenter['comment_author'] );
 
 	if ( $commenter['comment_author_email'] ) {
-		$moderation_note = __( 'Your comment is awaiting moderation.', 'islah_tw' );
+		$moderation_note = __( 'Your comment is awaiting moderation.', 'virtualpro' );
 	} else {
-		$moderation_note = __( 'Your comment is awaiting moderation. This is a preview; your comment will be visible after it has been approved.', 'islah_tw' );
+		$moderation_note = __( 'Your comment is awaiting moderation. This is a preview; your comment will be visible after it has been approved.', 'virtualpro' );
 	}
 	?>
 	<<?php echo esc_attr( $tag ); ?> id="comment-<?php comment_ID(); ?>" <?php comment_class( $comment->has_children ? 'parent' : '', $comment ); ?>>
@@ -150,7 +150,7 @@ function islah_tw_html5_comment( $comment, $args, $depth ) {
 
 					printf(
 						/* translators: %s: Comment author link. */
-						wp_kses_post( __( '%s <span class="says">says:</span>', 'islah_tw' ) ),
+						wp_kses_post( __( '%s <span class="says">says:</span>', 'virtualpro' ) ),
 						sprintf( '<b class="fn">%s</b>', wp_kses_post( $comment_author ) )
 					);
 					?>
@@ -165,14 +165,14 @@ function islah_tw_html5_comment( $comment, $args, $depth ) {
 						esc_html(
 							sprintf(
 							/* translators: 1: Comment date, 2: Comment time. */
-								__( '%1$s at %2$s', 'islah_tw' ),
+								__( '%1$s at %2$s', 'virtualpro' ),
 								get_comment_date( '', $comment ),
 								get_comment_time()
 							)
 						)
 					);
 
-					edit_comment_link( __( 'Edit', 'islah_tw' ), ' <span class="edit-link">', '</span>' );
+					edit_comment_link( __( 'Edit', 'virtualpro' ), ' <span class="edit-link">', '</span>' );
 					?>
 				</div><!-- .comment-metadata -->
 
@@ -181,7 +181,7 @@ function islah_tw_html5_comment( $comment, $args, $depth ) {
 				<?php endif; ?>
 			</footer><!-- .comment-meta -->
 
-			<div <?php islah_tw_content_class( 'comment-content' ); ?>>
+			<div <?php virtualpro_content_class( 'comment-content' ); ?>>
 				<?php comment_text(); ?>
 			</div><!-- .comment-content -->
 

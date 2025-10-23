@@ -4,14 +4,14 @@
  *
  * Eventually, some functionality here could be replaced by core features.
  *
- * @package islah_tw
+ * @package VirtualPro
  */
 
-if ( ! function_exists( 'islah_tw_posted_on' ) ) :
+if ( ! function_exists( 'virtualpro_posted_on' ) ) :
 	/**
 	 * Prints HTML with meta information for the current post-date/time.
 	 */
-	function islah_tw_posted_on() {
+	function virtualpro_posted_on() {
 		$time_string = '<time class="published updated" datetime="%1$s">%2$s</time>';
 		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
 			$time_string = '<time class="published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
@@ -33,67 +33,67 @@ if ( ! function_exists( 'islah_tw_posted_on' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'islah_tw_posted_by' ) ) :
+if ( ! function_exists( 'virtualpro_posted_by' ) ) :
 	/**
 	 * Prints HTML with meta information about theme author.
 	 */
-	function islah_tw_posted_by() {
+	function virtualpro_posted_by() {
 		printf(
 		/* translators: 1: posted by label, only visible to screen readers. 2: author link. 3: post author. */
 			'<span class="sr-only">%1$s</span><span class="author vcard"><a class="url fn n" href="%2$s">%3$s</a></span>',
-			esc_html__( 'Posted by', 'islah_tw' ),
+			esc_html__( 'Posted by', 'virtualpro' ),
 			esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
 			esc_html( get_the_author() )
 		);
 	}
 endif;
 
-if ( ! function_exists( 'islah_tw_comment_count' ) ) :
+if ( ! function_exists( 'virtualpro_comment_count' ) ) :
 	/**
 	 * Prints HTML with the comment count for the current post.
 	 */
-	function islah_tw_comment_count() {
+	function virtualpro_comment_count() {
 		if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
 			/* translators: %s: Name of current post. Only visible to screen readers. */
-			comments_popup_link( sprintf( __( 'Leave a comment<span class="sr-only"> on %s</span>', 'islah_tw' ), get_the_title() ) );
+			comments_popup_link( sprintf( __( 'Leave a comment<span class="sr-only"> on %s</span>', 'virtualpro' ), get_the_title() ) );
 		}
 	}
 endif;
 
-if ( ! function_exists( 'islah_tw_entry_meta' ) ) :
+if ( ! function_exists( 'virtualpro_entry_meta' ) ) :
 	/**
 	 * Prints HTML with meta information for the categories, tags and comments.
 	 * This template tag is used in the entry header.
 	 */
-	function islah_tw_entry_meta() {
+	function virtualpro_entry_meta() {
 
 		// Hide author, post date, category and tag text for pages.
 		if ( 'post' === get_post_type() ) {
 
 			// Posted by.
-			islah_tw_posted_by();
+			virtualpro_posted_by();
 
 			// Posted on.
-			islah_tw_posted_on();
+			virtualpro_posted_on();
 
 			/* translators: used between list items, there is a space after the comma. */
-			$categories_list = get_the_category_list( __( ', ', 'islah_tw' ) );
+			$categories_list = get_the_category_list( __( ', ', 'virtualpro' ) );
 			if ( $categories_list ) {
 				printf(
 				/* translators: 1: posted in label, only visible to screen readers. 2: list of categories. */
 					'<span class="sr-only">%1$s</span>%2$s',
-					esc_html__( 'Posted in', 'islah_tw' ),
+					esc_html__( 'Posted in', 'virtualpro' ),
 					$categories_list // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				);
 			}
 
 			/* translators: used between list items, there is a space after the comma. */
-			$tags_list = get_the_tag_list( '', __( ', ', 'islah_tw' ) );
+			$tags_list = get_the_tag_list( '', __( ', ', 'virtualpro' ) );
 			if ( $tags_list ) {
 				printf(
 				/* translators: 1: tags label, only visible to screen readers. 2: list of tags. */
 					'<span class="sr-only">%1$s</span>%2$s',
-					esc_html__( 'Tags:', 'islah_tw' ),
+					esc_html__( 'Tags:', 'virtualpro' ),
 					$tags_list // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				);
 			}
@@ -101,7 +101,7 @@ if ( ! function_exists( 'islah_tw_entry_meta' ) ) :
 
 		// Comment count.
 		if ( ! is_singular() ) {
-			islah_tw_comment_count();
+			virtualpro_comment_count();
 		}
 
 		// Edit post link.
@@ -109,7 +109,7 @@ if ( ! function_exists( 'islah_tw_entry_meta' ) ) :
 			sprintf(
 				wp_kses(
 				/* translators: %s: Name of current post. Only visible to screen readers. */
-					__( 'Edit <span class="sr-only">%s</span>', 'islah_tw' ),
+					__( 'Edit <span class="sr-only">%s</span>', 'virtualpro' ),
 					array(
 						'span' => array(
 							'class' => array(),
@@ -122,39 +122,39 @@ if ( ! function_exists( 'islah_tw_entry_meta' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'islah_tw_entry_footer' ) ) :
+if ( ! function_exists( 'virtualpro_entry_footer' ) ) :
 	/**
 	 * Prints HTML with meta information for the categories, tags and comments.
 	 */
-	function islah_tw_entry_footer() {
+	function virtualpro_entry_footer() {
 
 		// Hide author, post date, category and tag text for pages.
 		if ( 'post' === get_post_type() ) {
 
 			// Posted by.
-			islah_tw_posted_by();
+			virtualpro_posted_by();
 
 			// Posted on.
-			islah_tw_posted_on();
+			virtualpro_posted_on();
 
 			/* translators: used between list items, there is a space after the comma. */
-			$categories_list = get_the_category_list( __( ', ', 'islah_tw' ) );
+			$categories_list = get_the_category_list( __( ', ', 'virtualpro' ) );
 			if ( $categories_list ) {
 				printf(
 				/* translators: 1: posted in label, only visible to screen readers. 2: list of categories. */
 					'<span class="sr-only">%1$s</span>%2$s',
-					esc_html__( 'Posted in', 'islah_tw' ),
+					esc_html__( 'Posted in', 'virtualpro' ),
 					$categories_list // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				);
 			}
 
 			/* translators: used between list items, there is a space after the comma. */
-			$tags_list = get_the_tag_list( '', __( ', ', 'islah_tw' ) );
+			$tags_list = get_the_tag_list( '', __( ', ', 'virtualpro' ) );
 			if ( $tags_list ) {
 				printf(
 				/* translators: 1: tags label, only visible to screen readers. 2: list of tags. */
 					'<span class="sr-only">%1$s</span>%2$s',
-					esc_html__( 'Tags:', 'islah_tw' ),
+					esc_html__( 'Tags:', 'virtualpro' ),
 					$tags_list // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				);
 			}
@@ -162,7 +162,7 @@ if ( ! function_exists( 'islah_tw_entry_footer' ) ) :
 
 		// Comment count.
 		if ( ! is_singular() ) {
-			islah_tw_comment_count();
+			virtualpro_comment_count();
 		}
 
 		// Edit post link.
@@ -170,7 +170,7 @@ if ( ! function_exists( 'islah_tw_entry_footer' ) ) :
 			sprintf(
 				wp_kses(
 				/* translators: %s: Name of current post. Only visible to screen readers. */
-					__( 'Edit <span class="sr-only">%s</span>', 'islah_tw' ),
+					__( 'Edit <span class="sr-only">%s</span>', 'virtualpro' ),
 					array(
 						'span' => array(
 							'class' => array(),
@@ -183,13 +183,13 @@ if ( ! function_exists( 'islah_tw_entry_footer' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'islah_tw_post_thumbnail' ) ) :
+if ( ! function_exists( 'virtualpro_post_thumbnail' ) ) :
 	/**
 	 * Displays an optional post thumbnail, wrapping the post thumbnail in an
 	 * anchor element except when viewing a single post.
 	 */
-	function islah_tw_post_thumbnail() {
-		if ( ! islah_tw_can_show_post_thumbnail() ) {
+	function virtualpro_post_thumbnail() {
+		if ( ! virtualpro_can_show_post_thumbnail() ) {
 			return;
 		}
 
@@ -215,30 +215,30 @@ if ( ! function_exists( 'islah_tw_post_thumbnail' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'islah_tw_comment_avatar' ) ) :
+if ( ! function_exists( 'virtualpro_comment_avatar' ) ) :
 	/**
 	 * Returns the HTML markup to generate a user avatar.
 	 *
 	 * @param mixed $id_or_email The Gravatar to retrieve. Accepts a user_id, gravatar md5 hash,
 	 *                           user email, WP_User object, WP_Post object, or WP_Comment object.
 	 */
-	function islah_tw_get_user_avatar_markup( $id_or_email = null ) {
+	function virtualpro_get_user_avatar_markup( $id_or_email = null ) {
 
 		if ( ! isset( $id_or_email ) ) {
 			$id_or_email = get_current_user_id();
 		}
 
-		return sprintf( '<div class="vcard">%s</div>', get_avatar( $id_or_email, islah_tw_get_avatar_size() ) );
+		return sprintf( '<div class="vcard">%s</div>', get_avatar( $id_or_email, virtualpro_get_avatar_size() ) );
 	}
 endif;
 
-if ( ! function_exists( 'islah_tw_discussion_avatars_list' ) ) :
+if ( ! function_exists( 'virtualpro_discussion_avatars_list' ) ) :
 	/**
 	 * Displays a list of avatars involved in a discussion for a given post.
 	 *
 	 * @param array $comment_authors Comment authors to list as avatars.
 	 */
-	function islah_tw_discussion_avatars_list( $comment_authors ) {
+	function virtualpro_discussion_avatars_list( $comment_authors ) {
 		if ( empty( $comment_authors ) ) {
 			return;
 		}
@@ -246,29 +246,29 @@ if ( ! function_exists( 'islah_tw_discussion_avatars_list' ) ) :
 		foreach ( $comment_authors as $id_or_email ) {
 			printf(
 				"<li>%s</li>\n",
-				islah_tw_get_user_avatar_markup( $id_or_email ) // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				virtualpro_get_user_avatar_markup( $id_or_email ) // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			);
 		}
 		echo '</ol>', "\n";
 	}
 endif;
 
-if ( ! function_exists( 'islah_tw_the_posts_navigation' ) ) :
+if ( ! function_exists( 'virtualpro_the_posts_navigation' ) ) :
 	/**
 	 * Wraps `the_posts_pagination` for use throughout the theme.
 	 */
-	function islah_tw_the_posts_navigation() {
+	function virtualpro_the_posts_navigation() {
 		the_posts_pagination(
 			array(
 				'mid_size'  => 2,
-				'prev_text' => __( 'Newer posts', 'islah_tw' ),
-				'next_text' => __( 'Older posts', 'islah_tw' ),
+				'prev_text' => __( 'Newer posts', 'virtualpro' ),
+				'next_text' => __( 'Older posts', 'virtualpro' ),
 			)
 		);
 	}
 endif;
 
-if ( ! function_exists( 'islah_tw_content_class' ) ) :
+if ( ! function_exists( 'virtualpro_content_class' ) ) :
 	/**
 	 * Displays the class names for the post content wrapper.
 	 *
@@ -282,8 +282,8 @@ if ( ! function_exists( 'islah_tw_content_class' ) ) :
 	 * @param string|string[] $classes Space-separated string or array of class
 	 *                                 names to add to the class list.
 	 */
-	function islah_tw_content_class( $classes = '' ) {
-		$all_classes = array( $classes, ISLAH_TW_TYPOGRAPHY_CLASSES );
+	function virtualpro_content_class( $classes = '' ) {
+		$all_classes = array( $classes, VIRTUALPRO_TYPOGRAPHY_CLASSES );
 
 		foreach ( $all_classes as &$class_groups ) {
 			if ( ! empty( $class_groups ) ) {

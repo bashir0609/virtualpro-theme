@@ -4,7 +4,7 @@
 
 ### Step 1: Create GitHub Repository (2 min)
 1. Go to https://github.com/new
-2. Name: `islah-web-service-theme`
+2. Name: `virtualpro-web-service-theme`
 3. Make it **Public**
 4. Click **Create repository**
 
@@ -13,12 +13,12 @@
 **File: `theme/functions.php` (line ~235)**
 ```php
 $github_username = 'your-github-username';  // ← Your username
-$github_repo     = 'islah-web-service-theme';  // ← Your repo name
+$github_repo     = 'virtualpro-web-service-theme';  // ← Your repo name
 ```
 
 **File: `theme/style-source.css` (line 3)**
 ```css
-Theme URI: https://github.com/your-username/islah-web-service-theme
+Theme URI: https://github.com/your-username/virtualpro-web-service-theme
 Author: Your Name
 ```
 

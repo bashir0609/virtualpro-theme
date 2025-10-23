@@ -1,6 +1,6 @@
 # ✅ Setup Complete!
 
-Your **Islah Web Service Theme** is now ready for GitHub with automatic update notifications!
+Your **VirtualPro** is now ready for GitHub with automatic update notifications!
 
 ## 📦 What Was Done
 
@@ -23,7 +23,7 @@ Your **Islah Web Service Theme** is now ready for GitHub with automatic update n
 
 ### 1. Create GitHub Repository
 Go to: https://github.com/new
-- Repository name: `islah-web-service-theme` (or your choice)
+- Repository name: `virtualpro-web-service-theme` (or your choice)
 - Visibility: **Public** (for free auto-updates)
 - Don't initialize with README
 

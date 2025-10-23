@@ -22,7 +22,7 @@ This guide will help you set up automatic update notifications for your WordPres
 ### 1. Create GitHub Repository
 
 1. Go to https://github.com/new
-2. Repository name: `islah-web-service-theme` (or your preferred name)
+2. Repository name: `virtualpro-web-service-theme` (or your preferred name)
 3. Description: "Custom WordPress theme with TailwindCSS"
 4. Choose **Public** (required for free auto-updates)
 5. **Do NOT** check "Add a README file"
@@ -35,10 +35,10 @@ This guide will help you set up automatic update notifications for your WordPres
 Find line ~233 and update:
 
 ```php
-function islah_tw_init_updater() {
+function virtualpro_tw_init_updater() {
     $github_username = 'your-github-username';  // ← Change this
-    $github_repo     = 'islah-web-service-theme';  // ← Change this
-    $theme_slug      = 'islah_tw';  // Keep as is
+    $github_repo     = 'virtualpro-web-service-theme';  // ← Change this
+    $theme_slug      = 'virtualpro_tw';  // Keep as is
     $access_token    = '';  // Leave empty for public repos
     
     new Islah_TW_Theme_Updater(
@@ -56,7 +56,7 @@ Update these lines:
 
 ```css
 Theme Name: Islah Web Service Theme
-Theme URI: https://github.com/your-username/islah-web-service-theme
+Theme URI: https://github.com/your-username/virtualpro-web-service-theme
 Author: Your Name
 Author URI: https://github.com/your-username
 Version: 1.0.0
@@ -80,7 +80,7 @@ git commit -m "Initial commit: Islah Web Service Theme v1.0.0"
 git branch -M main
 
 # Add remote (replace with your repository URL)
-git remote add origin https://github.com/your-username/islah-web-service-theme.git
+git remote add origin https://github.com/your-username/virtualpro-web-service-theme.git
 
 # Push to GitHub
 git push -u origin main

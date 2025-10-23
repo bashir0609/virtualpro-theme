@@ -1,6 +1,6 @@
-# Islah Web Service Theme (TailwindCSS)
+# VirtualPro - WordPress Theme for Virtual Assistants
 
-A custom WordPress theme based on _tw with TailwindCSS and automatic GitHub updates
+A professional WordPress theme for virtual assistants and admin support services. Built with TailwindCSS and featuring automatic GitHub updates.
 
 ## Features
 
@@ -15,14 +15,14 @@ A custom WordPress theme based on _tw with TailwindCSS and automatic GitHub upda
 ### Step 1: Create GitHub Repository
 
 1. Go to [GitHub](https://github.com) and create a new repository
-2. Name it something like `islah-web-service-theme` or `islah_tw`
+2. Name it something like `virtualpro-web-service-theme` or `virtualpro_tw`
 3. Make it **Public** (or Private if you add an access token)
 4. **Don't** initialize with README (we already have one)
 
 ### Step 2: Configure Theme Settings
 
 1. Open `theme/functions.php`
-2. Find the `islah_tw_init_updater()` function (around line 233)
+2. Find the `virtualpro_init_updater()` function (around line 233)
 3. Replace these values:
    ```php
    $github_username = 'YOUR_GITHUB_USERNAME';  // Your GitHub username

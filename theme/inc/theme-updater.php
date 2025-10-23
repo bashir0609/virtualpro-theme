@@ -4,14 +4,14 @@
  *
  * Enables automatic theme updates from GitHub releases
  *
- * @package islah_tw
+ * @package VirtualPro
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-class Islah_TW_Theme_Updater {
+class VirtualPro_Theme_Updater {
 
 	/**
 	 * GitHub username
@@ -100,7 +100,7 @@ class Islah_TW_Theme_Updater {
 	 * @return array|false
 	 */
 	private function get_remote_version() {
-		$transient_key = 'islah_tw_github_release';
+		$transient_key = 'virtualpro_github_release';
 		$cached_data   = get_transient( $transient_key );
 
 		if ( false !== $cached_data ) {
@@ -178,13 +178,13 @@ class Islah_TW_Theme_Updater {
 			return $corrected_source;
 		}
 
-		return new WP_Error( 'rename_failed', __( 'Unable to rename the theme directory.', 'islah_tw' ) );
+		return new WP_Error( 'rename_failed', __( 'Unable to rename the theme directory.', 'virtualpro' ) );
 	}
 
 	/**
 	 * Clear update cache
 	 */
 	public static function clear_cache() {
-		delete_transient( 'islah_tw_github_release' );
+		delete_transient( 'virtualpro_github_release' );
 	}
 }
