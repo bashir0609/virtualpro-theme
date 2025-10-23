@@ -13,7 +13,15 @@
 
 	</div><!-- #content -->
 
-	<?php get_template_part( 'template-parts/layout/footer', 'content' ); ?>
+	<?php
+	// Check if Elementor footer exists
+	if ( function_exists( 'virtualpro_render_elementor_footer' ) && virtualpro_render_elementor_footer() ) {
+		// Elementor footer rendered
+	} else {
+		// Use default footer
+		get_template_part( 'template-parts/layout/footer', 'content' );
+	}
+	?>
 
 </div><!-- #page -->
 

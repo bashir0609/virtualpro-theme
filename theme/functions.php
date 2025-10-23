@@ -226,6 +226,11 @@ require get_template_directory() . '/inc/template-functions.php';
 require get_template_directory() . '/inc/theme-updater.php';
 
 /**
+ * Elementor Support for Custom Header & Footer
+ */
+require get_template_directory() . '/inc/elementor-support.php';
+
+/**
  * Initialize GitHub Theme Updater
  *
  * Replace 'YOUR_GITHUB_USERNAME' and 'YOUR_REPO_NAME' with your actual GitHub details

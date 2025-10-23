@@ -26,6 +26,14 @@
 <div id="page">
 	<a href="#content" class="sr-only"><?php esc_html_e( 'Skip to content', 'islah_tw' ); ?></a>
 
-	<?php get_template_part( 'template-parts/layout/header', 'content' ); ?>
+	<?php
+	// Check if Elementor header exists
+	if ( function_exists( 'virtualpro_render_elementor_header' ) && virtualpro_render_elementor_header() ) {
+		// Elementor header rendered
+	} else {
+		// Use default header
+		get_template_part( 'template-parts/layout/header', 'content' );
+	}
+	?>
 
 	<div id="content">
